@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from models import Todo
 
 ## LINKS:
+## Tutorial: https://www.youtube.com/watch?v=cbASjoZZGIw
 ## https://latenode.com/blog/http-request-methods#:~:text=It's%20essential%20to%20grasp%20this,a%20POST%20or%20PUT%20request.
 ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/PATCH
 
