@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from models import Todo
+from mangum import Mangum
+
 
 ## LINKS:
 ## Tutorial: https://www.youtube.com/watch?v=cbASjoZZGIw
@@ -9,6 +11,8 @@ from models import Todo
 
 app = FastAPI()
 
+## For AWS Lambda
+handler = Mangum(app)
 @app.get("/")
 async def root():
     return {"message": "Hello World!"}
@@ -67,6 +71,3 @@ async def update_todo(todo_obj: Todo):
             return {"message": "Successfully updated todo with id {todo_id}", "http_code": 200}
     
     raise HTTPException(status_code=404, detail=f"No todo with id {todo_id} exists")
-
-
-
