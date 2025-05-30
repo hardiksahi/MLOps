@@ -1,0 +1,5 @@
+*.pyc
+requirements.txt
+packages/
+*.zip
+*.DS_Store
