@@ -1,5 +1,5 @@
 *.pyc
 requirements.txt
-lib/
+packages/
 *.zip
 *.DS_Store
