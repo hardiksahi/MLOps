@@ -1,0 +1,6 @@
+[submodule "tutorials/docker/tutorials/docker/nana_demo/techworld-js-docker-demo-app"]
+	path = tutorials/docker/tutorials/docker/nana_demo/techworld-js-docker-demo-app
+	url = https://gitlab.com/nanuchi/techworld-js-docker-demo-app.git
+[submodule "tutorials/docker/nana_demo/techworld-js-docker-demo-app1"]
+	path = tutorials/docker/nana_demo/techworld-js-docker-demo-app1
+	url = https://gitlab.com/nanuchi/techworld-js-docker-demo-app.git
