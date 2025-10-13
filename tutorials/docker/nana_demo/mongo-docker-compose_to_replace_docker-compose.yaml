@@ -1,0 +1,51 @@
+# docker network create mongo-network
+# Run mongodb using: docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --network mongo-network mongo:latest
+# Run mongo-express using: docker run -d -p 8081:8081 --network mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb -e ME_CONFIG_MONGODB_PORT=27017 --name mongo-express mongo-express:latest
+
+version: '3'
+services:
+  my-app:
+    image: 070593201817.dkr.ecr.us-east-1.amazonaws.com/my-app:1.0
+    ports:
+      - 3000:3000
+    environment:
+      - MONGO_DB_USERNAME=admin
+      - MONGO_DB_PWD=password
+    volumes:
+      - type: volume
+        source: named_volume
+        target: /hardik
+      - type: bind
+        source: /Users/hardiksahi/Desktop/storage
+        target: /hardik_mount
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - type: volume
+        source: named_volume
+        target: /mona
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always ## needed when one container depends on another getting started up.
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb ## This is same as name of mongodb container above.
+      - ME_CONFIG_MONGODB_PORT=27017
+    volumes:
+      - type: volume
+        source: named_volume
+        target: /inaira
+
+volumes:
+  named_volume:
+    driver: local
