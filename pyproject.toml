@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi[standard]>=0.115.12",
+    "kedro>=1.0.0",
     "mangum>=0.19.0",
+    "spaceflights",
     "uvicorn>=0.34.2",
 ]
