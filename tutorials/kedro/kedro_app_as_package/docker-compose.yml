@@ -1,5 +1,6 @@
 services:
   backend:
+    image: backend:v1.0
     build:
       context: ./backend
     env_file:
@@ -12,6 +13,7 @@ services:
         target: /app/data
 
   frontend:
+    image: frontend:v1.0
     build:
       context: ./frontend
     env_file:
